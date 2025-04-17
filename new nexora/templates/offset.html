@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carbon Offset Projects</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+      min-height: 100vh;
+      padding: 40px 15px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-weight: 600;
+      color: #2e7d32;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .project-card {
+      border: 1px solid #dcedc8;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background-color: #f9fbe7;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .project-info h5 {
+      margin: 0;
+      color: #33691e;
+      font-weight: 600;
+    }
+
+    .project-info small {
+      color: #6b8e23;
+    }
+
+    .btn-support {
+      background-color: #2e7d32;
+      border-color: #2e7d32;
+      color: white;
+      border-radius: 8px;
+      padding: 8px 18px;
+    }
+
+    .btn-support:hover {
+      background-color: #1b5e20;
+      border-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Carbon Offset Projects</h1>
+    <p>Select a project to support and reduce your carbon footprint.</p>
+
+    <div id="project-list"></div>
+  </div>
+
+  <script>
+    const projects = [
+      { name: "Tree Planting Initiative", impact: "Offset 1000kg CO₂", page: "plant.html" },
+      { name: "Renewable Energy Project", impact: "Offset 5000kg CO₂", page: "renewable.html" },
+      { name: "Wildlife Conservation", impact: "Offset 1500kg CO₂", page: "wildlife.html" },
+    ];
+
+    const projectList = document.getElementById("project-list");
+
+    projects.forEach((project) => {
+      const div = document.createElement("div");
+      div.classList.add("project-card");
+
+      div.innerHTML = `
+        <div class="project-info">
+          <div>
+            <h5>${project.name}</h5>
+            <small>${project.impact}</small>
+          </div>
+          <button class="btn btn-support" onclick="supportProject('${project.page}')">Support</button>
+        </div>
+      `;
+
+      projectList.appendChild(div);
+    });
+
+    function supportProject(page) {
+      window.location.href = page; // Redirect to the specific project page
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

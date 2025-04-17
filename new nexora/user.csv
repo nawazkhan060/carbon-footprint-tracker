@@ -1,0 +1,4 @@
+id,username,email,password,created_at
+"550e8400-e29b-41d4-a716-446655440000","john_doe","john@example.com","password123","2025-04-15 10:00:00"
+"550e8400-e29b-41d4-a716-446655440001","jane_smith","jane@example.com","pass456","2025-04-15 10:05:00"
+"550e8400-e29b-41d4-a716-446655440002","bob_jones","bob@example.com","bobpass789","2025-04-15 10:10:00"

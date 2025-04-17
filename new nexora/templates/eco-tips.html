@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eco Tips</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to right, #e6f9f1, #c2f0dd);
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .tip-card {
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 3rem;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #2ecc71;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .eco-tip {
+      font-size: 1.6rem;
+      color: #2c3e50;
+      margin-bottom: 2.5rem;
+      min-height: 100px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .button {
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .button:hover {
+      background-color: #27ae60;
+      transform: scale(1.03);
+    }
+
+    .button:active {
+      transform: scale(0.97);
+    }
+
+    @media (max-width: 576px) {
+      .tip-card {
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .eco-tip {
+        font-size: 1.3rem;
+      }
+
+      .button {
+        font-size: 1rem;
+        padding: 12px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="tip-card">
+    <h1>🌿 Eco Tip of the Day</h1>
+    <p class="eco-tip" id="eco-tip">Loading tip...</p>
+    <button class="button" onclick="showNewTip()">Show Another Tip</button>
+  </div>
+
+  <script>
+    const ecoTips = [
+      "🌳 Plant trees to offset your carbon footprint.",
+      "🥦 Reduce meat consumption to lower emissions.",
+      "🚲 Use public transport or bike to travel eco-friendly.",
+      "♻ Reduce, reuse, and recycle whenever possible.",
+      "💡 Switch to energy-efficient LED bulbs.",
+      "🚿 Take shorter showers to conserve water.",
+      "🔌 Unplug electronics when not in use.",
+      "🛍 Carry a reusable bag when shopping.",
+      "🧴 Use refillable water bottles instead of plastic ones.",
+      "🌞 Utilize natural sunlight instead of lights during the day.",
+      "🧼 Choose eco-friendly cleaning products.",
+      "📱 Donate or recycle old electronics."
+    ];
+
+    function showNewTip() {
+      const randomTip = ecoTips[Math.floor(Math.random() * ecoTips.length)];
+      document.getElementById("eco-tip").innerText = randomTip;
+    }
+
+    document.addEventListener("DOMContentLoaded", showNewTip);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

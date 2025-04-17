@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - Carbon Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #a8e6cf, #d1f7c4);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+    .navbar {
+      background-color: #2c3e50;
+      border-bottom: 2px solid #27ae60;
+    }
+    .navbar-brand, .nav-link {
+      color: #ecf0f1 !important;
+    }
+    .navbar-toggler-icon {
+      background-color: #ecf0f1 !important;
+    }
+    .hero {
+      padding: 120px 20px;
+      text-align: center;
+      color: #2c3e50;
+      background: url('https://www.example.com/hero-background.jpg') no-repeat center center;
+      background-size: cover;
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .hero p {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+    .hero-buttons a {
+      margin: 10px;
+    }
+    .about, .features {
+      padding: 80px 0;
+      background-color: #fff;
+      text-align: center;
+    }
+    .about h2, .features h2 {
+      font-size: 2.5rem;
+      color: #27ae60;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .about p, .features p {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      line-height: 1.8;
+    }
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .feature-card {
+      background-color: #ecf0f1;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .footer {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 40px 0;
+    }
+    .footer a {
+      color: #ecf0f1;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer a:hover {
+      color: #27ae60;
+    }
+    .feature-card h3 {
+      font-size: 1.75rem;
+      color: #2c3e50;
+    }
+    .feature-card p {
+      font-size: 1.1rem;
+      color: #7f8c8d;
+    }
+    .hero-buttons a {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="home.html">🌱 Carbon Tracker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon bg-light rounded"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+          <li class="nav-item"><a class="nav-link" href="calculator.html">Calculator</a></li>
+          <li class="nav-item"><a class="nav-link" href="leaderboard.html">Leaderboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="offset.html">Carbon Offset</a></li>
+          <li class="nav-item"><a class="nav-link" href="eco-tips.html">eco-tips</a></li>
+          <li class="nav-item"><a class="nav-link" href="/static/barcode-scanner.html">Scan Barcode</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <h1>Track. Offset. Thrive.</h1>
+      <p>Welcome to Carbon Tracker — your personal guide to reducing your carbon footprint and embracing a sustainable lifestyle.</p>
+      <div class="hero-buttons">
+        <a href="signup.html" class="btn btn-success">Get Started</a>
+        <a href="login.html" class="btn btn-outline-light">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        Empowering individuals and businesses to measure, track, and reduce their carbon footprint. Join us in the movement towards a greener, more sustainable world.
+      </p>
+    </div>
+  </div>
+  
+<!-- Image Section -->
+<!-- Image Section -->
+<!-- Image Section -->
+<div class="image-section">
+  <div class="container text-center">
+    <div class="row justify-content-evenly g-4"> <!-- Added justify-content-evenly for even spacing -->
+      <div class="col-md-3 d-flex justify-content-center align-items-center">
+        <img src="vovo1.jpg" alt="Eco-friendly Solutions" class="img-fluid rounded shadow-lg">
+      </div>
+      <div class="col-md-3 d-flex justify-content-center align-items-center">
+        <img src="vovo2.jpg" alt="Sustainable Future" class="img-fluid rounded shadow-lg">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- Features Section -->
+  <div class="features">
+    <div class="container">
+      <h2>Key Features</h2>
+      <div class="feature-list">
+        <div class="feature-card">
+          <h3>Carbon Calculator</h3>
+          <p>Estimate your carbon emissions and discover ways to reduce your environmental impact.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Leaderboard</h3>
+          <p>See how you rank in reducing your carbon footprint compared to others in your city.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Carbon Offsets</h3>
+          <p>Support eco-friendly projects to offset your emissions and contribute to a greener planet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="container text-center my-5">
+    <h2>Get In Touch</h2>
+    <p>If you have any questions, feel free to reach out to us at <a href="mailto:contact@carbontracker.com">contact@carbontracker.com</a></p>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p>&copy; 2025 Carbon Tracker. All rights reserved.</p>
+      <div>
+        <a href="#" class="me-3">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

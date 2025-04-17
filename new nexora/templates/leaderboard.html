@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>City-wise Leaderboard</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #eafaf1, #d7f5e9);
+      font-family: 'Segoe UI', sans-serif;
+      padding-bottom: 50px;
+    }
+
+    .navbar {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #2e8b57;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: #34495e;
+    }
+
+    select.form-control {
+      max-width: 300px;
+      margin: auto;
+      border-radius: 10px;
+      border-color: #2ecc71;
+    }
+
+    table {
+      margin-top: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    th {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    td, th {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    tr:hover {
+      background-color: #f2fdf6;
+    }
+
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      select.form-control {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-leaf text-success mr-2"></i>Carbon Tracker
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="calculator.html">Calculator</a></li>
+          <li class="nav-item active"><a class="nav-link" href="leaderboard.html">Leaderboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="logout.html">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Leaderboard Section -->
+  <div class="container mt-5">
+    <h2 class="text-center">🏆 City-wise Carbon Footprint Leaderboard</h2>
+
+    <!-- Filters -->
+    <div class="form-group text-center">
+      <label for="city">Filter by City:</label>
+      <select id="city" class="form-control d-inline-block mt-2">
+        <option value="all">All Cities</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Pune">Pune</option>
+        <option value="Nagpur">Nagpur</option>
+        <option value="Aurangabad">Aurangabad</option>
+        <option value="Nashik">Nashik</option>
+        <option value="Thane">Thane</option>
+        <option value="Kalyan">Kalyan</option>
+        <option value="Kolhapur">Kolhapur</option>
+        <option value="Solapur">Solapur</option>
+        <option value="Nanded">Nanded</option>
+      </select>
+    </div>
+
+    <!-- Leaderboard Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>User</th>
+            <th>City</th>
+            <th>Carbon Footprint (kg CO₂)</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardTable">
+          <tr><td>1</td><td>John Doe</td><td>Mumbai</td><td>150.5</td></tr>
+          <tr><td>2</td><td>Jane Smith</td><td>Pune</td><td>170.3</td></tr>
+          <tr><td>3</td><td>Emily Davis</td><td>Nagpur</td><td>180.4</td></tr>
+          <tr><td>4</td><td>Michael Brown</td><td>Aurangabad</td><td>160.2</td></tr>
+          <tr><td>5</td><td>Alice Green</td><td>Nashik</td><td>145.7</td></tr>
+          <tr><td>6</td><td>Tom White</td><td>Thane</td><td>155.8</td></tr>
+          <tr><td>7</td><td>Sarah Black</td><td>Kalyan</td><td>165.9</td></tr>
+          <tr><td>8</td><td>David Blue</td><td>Kolhapur</td><td>175.6</td></tr>
+          <tr><td>9</td><td>Olivia Pink</td><td>Solapur</td><td>185.0</td></tr>
+          <tr><td>10</td><td>Lucas Red</td><td>Nanded</td><td>190.3</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Filter Script -->
+  <script>
+    document.getElementById('city').addEventListener('change', function() {
+      const selectedCity = this.value;
+      const rows = document.querySelectorAll('#leaderboardTable tr');
+      rows.forEach(row => {
+        const city = row.cells[2].innerText;
+        row.style.display = (selectedCity === 'all' || city === selectedCity) ? '' : 'none';
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

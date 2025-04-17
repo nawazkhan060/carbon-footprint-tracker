@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Support Environment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #d0f0c0, #f0fff0);
+      color: #2e7d32;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+      color: #1b5e20;
+    }
+
+    p.subtitle {
+      font-size: 1.3em;
+      margin-bottom: 40px;
+      color: #388e3c;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 1100px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #ffffff, #f1f8e9);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 300px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #2e7d32;
+      font-size: 1.5em;
+    }
+
+    .card p {
+      color: #4caf50;
+      font-size: 1em;
+      margin-bottom: 25px;
+    }
+
+    .card button {
+      padding: 12px 24px;
+      background: #43a047;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .card button:hover {
+      background: #2e7d32;
+    }
+
+    .payment-modal {
+      margin-top: 50px;
+      text-align: center;
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+    }
+
+    .payment-modal h2 {
+      margin-bottom: 10px;
+      color: #1b5e20;
+    }
+
+    .payment-modal p {
+      font-weight: bold;
+      color: #388e3c;
+      margin-bottom: 20px;
+    }
+
+    .payment-methods button {
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: #66bb6a;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .payment-methods button:hover {
+      background-color: #2e7d32;
+    }
+
+    #qr-code, #online-options {
+      margin-top: 25px;
+      display: none;
+    }
+
+    #qr-code img {
+      margin-top: 10px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    #online-options {
+      background: #f1f8e9;
+      border-radius: 15px;
+      padding: 20px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    #online-options h3 {
+      margin-bottom: 15px;
+      color: #33691e;
+    }
+
+    .pay-option {
+      background: #ffffff;
+      border: 2px solid #a5d6a7;
+      border-radius: 10px;
+      padding: 12px;
+      margin: 10px auto;
+      width: 220px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .pay-option:hover {
+      background: #c8e6c9;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      color: #558b2f;
+      font-size: 0.9em;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Support Our Environment 🌍</h1>
+  <p class="subtitle">Choose a cause and help us build a greener planet</p>
+
+  <div class="container">
+    <div class="card">
+      <h3>☀️ Solar Energy</h3>
+      <p>Help us provide solar panels to remote areas.</p>
+      <button onclick="selectDonation('Solar Energy', 10)">Donate $10</button>
+    </div>
+    <div class="card">
+      <h3>🌳 Tree Plantation</h3>
+      <p>Plant trees and restore nature's balance.</p>
+      <button onclick="selectDonation('Tree Plantation', 5)">Donate $5</button>
+    </div>
+    <div class="card">
+      <h3>🐾 Animal Feed</h3>
+      <p>Provide food and care for rescued animals.</p>
+      <button onclick="selectDonation('Animal Feed', 15)">Donate $15</button>
+    </div>
+  </div>
+
+  <div class="payment-modal" id="paymentModal">
+    <h2 id="donationTitle">Donate</h2>
+    <p id="donationAmount">Amount: $0</p>
+
+    <div class="payment-methods">
+      <button onclick="showQR()">📷 Pay with QR</button>
+      <button onclick="showOnline()">💳 Online Payment</button>
+    </div>
+
+    <div id="qr-code">
+      <p>Scan this QR code to complete your donation:</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://example.com/payment" alt="QR Code" />
+    </div>
+
+    <div id="online-options">
+      <h3>Select a Payment Method</h3>
+      <div class="pay-option" onclick="alert('Redirecting to Card Payment...')">💳 Credit / Debit Card</div>
+      <div class="pay-option" onclick="alert('Opening UPI app...')">📱 UPI / Google Pay / PhonePe</div>
+      <div class="pay-option" onclick="alert('Redirecting to Net Banking...')">🏦 Net Banking</div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Green Earth Foundation. Designed with 🌿 for a better tomorrow.
+  </footer>
+
+  <script>
+    function selectDonation(cause, amount) {
+      document.getElementById('paymentModal').style.display = 'block';
+      document.getElementById('donationTitle').innerText = `Donate to ${cause}`;
+      document.getElementById('donationAmount').innerText = `Amount: $${amount}`;
+      document.getElementById('qr-code').style.display = 'none';
+      document.getElementById('online-options').style.display = 'none';
+    }
+
+    function showQR() {
+      document.getElementById('qr-code').style.display = 'block';
+      document.getElementById('online-options').style.display = 'none';
+    }
+
+    function showOnline() {
+      document.getElementById('online-options').style.display = 'block';
+      document.getElementById('qr-code').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food CO2 Impact Scanner</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- QuaggaJS for barcode scanning -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+    <div class="container py-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h1 class="h4 mb-0">Food CO2 Impact Scanner</h1>
+                <small>Scan food barcodes to check their carbon footprint</small>
+            </div>
+            
+            <div class="card-body">
+                <ul class="nav nav-tabs mb-3" id="scannerTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="camera-tab" data-bs-toggle="tab" data-bs-target="#camera-pane" type="button" role="tab">Camera Scanner</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="upload-tab" data-bs-toggle="tab" data-bs-target="#upload-pane" type="button" role="tab">Upload Image</button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content mb-3" id="scannerTabContent">
+                    <!-- Camera Scanner Tab -->
+                    <div class="tab-pane fade show active" id="camera-pane" role="tabpanel">
+                        <div id="scanner-container">
+                            <div id="interactive" class="viewport bg-light rounded"></div>
+                        </div>
+                        
+                        <button id="start-button" class="btn btn-success w-100 mt-3">
+                            Start Scanner
+                        </button>
+                    </div>
+                    
+                    <!-- Image Upload Tab -->
+                    <div class="tab-pane fade" id="upload-pane" role="tabpanel">
+                        <div class="mb-3">
+                            <label for="image-upload" class="form-label">Choose an image with a barcode</label>
+                            <input class="form-control" type="file" id="image-upload" accept="image/*">
+                            <div class="form-text">The image should clearly show the product's barcode</div>
+                        </div>
+                        
+                        <div id="upload-preview-container" class="text-center mb-3 d-none">
+                            <img id="upload-preview" class="img-fluid rounded" alt="Preview">
+                        </div>
+                        
+                        <button id="scan-image-button" class="btn btn-success w-100">
+                            Scan Image
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="result-container" class="d-none">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="spinner-border text-success me-2 d-none" id="loading-spinner" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <h5 class="card-title mb-0">Product Information</h5>
+                            </div>
+                            <div id="product-info">
+                                <p class="text-muted">No product scanned yet</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">CO2 Impact</h5>
+                            <div id="co2-impact">
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Carbon footprint:</span>
+                                    <span id="co2-value" class="fw-bold">-</span>
+                                </div>
+                                <div class="progress mt-2 mb-3">
+                                    <div id="co2-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p id="co2-comparison" class="text-muted fst-italic small"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="barcode-result" class="mt-3 text-muted small"></div>
+            </div>
+        </div>
+        
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Recent Scans</h5>
+                <ul id="scan-history" class="list-group list-group-flush">
+                    <li class="list-group-item text-muted">No recent scans</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+    <script src="scanner.js"></script>
+    <script src="productData.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
